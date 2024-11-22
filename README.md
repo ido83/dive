@@ -47,6 +47,16 @@ CI=true dive <your-image>
 
 ![Image](.data/demo-ci.png)
 
+Scan local docker image tar file (avoid mounting the docker sock for security reasons):
+```
+alias dive="docker run -it --rm  -v "$PWD":"$PWD" -w "$PWD" wagoodman/dive"
+dive <your-image-tar>
+
+# for example
+docker save nginx:alpine -o nginx.tar
+dive nginx.tar
+```
+
 **This is beta quality!** *Feel free to submit an issue if you want a new feature or find a bug :)*
 
 ## Basic Features
